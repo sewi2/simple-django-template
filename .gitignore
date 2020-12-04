@@ -19,3 +19,6 @@ coverage.*
 
 sample*
 /patches/
+.idea
+.idea/workspace.xml
+*.xml
