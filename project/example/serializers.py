@@ -1,5 +1,6 @@
-from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
+from rest_framework import serializers
+
 from .models import Avatar, AccessKey, Profile, User, Site
 
 
@@ -8,7 +9,7 @@ class AvatarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Avatar
-        fields = ('pk', 'image',)
+        fields = ('id', 'image',)
 
 
 class SiteSerializer(serializers.ModelSerializer):
@@ -16,14 +17,13 @@ class SiteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Site
-        fields = ('pk', 'url',)
+        fields = ('id', 'url',)
 
 
 class AccessKeySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = AccessKey
-        fields = ('pk', 'key',)
+        fields = ('id', 'key',)
 
 
 class ProfileSerializer(WritableNestedModelSerializer):
@@ -38,7 +38,7 @@ class ProfileSerializer(WritableNestedModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ('pk', 'sites', 'avatars', 'access_key',)
+        fields = ('id', 'sites', 'avatars', 'access_key',)
 
 
 class UserSerializer(WritableNestedModelSerializer):
@@ -47,4 +47,4 @@ class UserSerializer(WritableNestedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('pk', 'profile', 'username',)
+        fields = ('id', 'profile', 'username',)
